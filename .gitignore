@@ -3,3 +3,5 @@ output/*.txt
 summary/*.txt
 *.mk
 *.pyc
+*.pdf
+plot/.R*
