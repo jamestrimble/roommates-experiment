@@ -5,9 +5,9 @@ d <- read.delim("../summary/all.txt", header=FALSE, col.names=c("n", "p", "iters
 d$np <- d$n * d$p
 d$lognp <- log(d$np)
 
-d <- d[d$n > 23, ]
+d <- d[d$n > 23 & d$n < 32768, ]
 
-d$n_group = paste(as.integer(d$n/2) * 2, as.integer(d$n/2) * 2 + 1, sep="/")
+d$n_group = paste0("n = ", as.integer(d$n/2) * 2, ", ", as.integer(d$n/2) * 2 + 1)
 d$n_group = factor(d$n_group, levels=unique(d$n_group))
 d$is_odd = d$n %% 2 == 1
 
@@ -17,12 +17,20 @@ d$is_odd = d$n %% 2 == 1
 #  facet_wrap(~n) +
 #  theme_bw()
 
-ggplot(d, aes(x=np, y=prop_stable, colour=is_odd)) +
+label_positions = d %>%
+  group_by(n) %>%
+  arrange(np) %>%
+  slice(n())
+
+ggplot(d, aes(x=np, y=prop_stable, colour=is_odd, label=n)) +
   geom_point() +
   geom_line() +
   facet_wrap(~n_group) +
   theme_bw() +
-  scale_x_log10(breaks=c(1, 10, 100, 1000), limits=c(1,1000))
+  scale_x_log10(breaks=c(1, 10, 100, 1000), limits=c(1,4000)) +
+  geom_text(data=label_positions, nudge_x=.1+nchar(as.character(label_positions$n))/10, colour="black") +
+  scale_colour_discrete(guide=FALSE) +
+  ylab("Proportion of instances that admit a stable solution")
 
 ggsave("1-proportion_of_instances_with_stable_solution.pdf", width=18, height=10)
 
