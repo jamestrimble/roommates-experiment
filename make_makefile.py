@@ -1,4 +1,6 @@
 def get_max_iter(size, np):
+    return 2
+
     if size < 20:
         return 1000000
     elif size < 100:
@@ -41,4 +43,5 @@ for size in sizes:
 for size in sizes:
     for np in get_nps(size):
             print "output/{}-{}.txt:".format(size, np)
-            print "\t$(SR) $(SRFLAGS) -n {} --np {} --maxiter {} > output/{}-{}.txt".format(size, np, get_max_iter(size, np), size, np)
+            print "\t$(SR) $(SRFLAGS) -n {} --np {} --maxiter {} --seed $$(python -c 'import random;print random.randint(1,1000000000)') > output/{}-{}.txt".format(
+                    size, np, get_max_iter(size, np), size, np)
