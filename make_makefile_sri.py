@@ -6,7 +6,7 @@ def get_max_iter(size, np):
     if size < 20:     return 1000000
     elif size < 100:  return 100000
     elif size < 1000: return 10000
-    else:             return 500
+    else:             return 1000
 
 with open("{}/input/sizes.txt".format(base_dir)) as f:
     sizes = [int(sz) for sz in f.readlines()]
