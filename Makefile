@@ -1,11 +1,11 @@
-all: generated.mk
-	make -j4 -f generated.mk
+all: sri/generated.mk #morph-a/generated.mk morph-b/generated.mk
+	make -j4 -f sri/generated.mk
 
-generated.mk: make_makefile.py input/sizes.txt
-	python make_makefile.py > generated.mk
+sri/generated.mk: make_makefile.py sri/input/sizes.txt
+	python make_makefile.py > sri/generated.mk
 
-input/sizes.txt:
-	python make_sizes.py > input/sizes.txt
+sri/input/sizes.txt:
+	python make_sizes.py > sri/input/sizes.txt
 
 clean:
-	rm output/*.txt summary/*.txt generated.mk input/sizes.txt
+	rm */output/*.txt */summary/*.txt */generated.mk */input/sizes.txt
