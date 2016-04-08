@@ -1,7 +1,7 @@
 library(dplyr)
 library(ggplot2)
 
-d <- read.delim("../summary/all.txt", header=FALSE, col.names=c("n", "p", "iters", "prop_stable", "seed"))
+d <- read.delim("../sri/summary/all.txt", header=FALSE, col.names=c("n", "p", "iters", "prop_stable", "seed"))
 d$np <- d$n * d$p
 d$lognp <- log(d$np)
 
@@ -36,7 +36,7 @@ ggsave("1-proportion_of_instances_with_stable_solution.pdf", width=18, height=10
 
 ############### Average number of stable matchings ################
 
-d <- read.delim("../summary/counts.txt", header=FALSE, col.names=c("n", "np", "stable_count", "count"), sep=" ")
+d <- read.delim("../sri/summary/counts.txt", header=FALSE, col.names=c("n", "np", "stable_count", "count"), sep=" ")
 
 d <- d[d$n > 23, ]
 
@@ -60,7 +60,7 @@ ggsave("2-mean_number_of_stable_matchings.pdf", width=18, height=10)
 
 ############### Max number of stable matchings ################
 
-d <- read.delim("../summary/counts.txt", header=FALSE, col.names=c("n", "np", "stable_count", "count"), sep=" ")
+d <- read.delim("../sri/summary/counts.txt", header=FALSE, col.names=c("n", "np", "stable_count", "count"), sep=" ")
 
 d <- d[d$n > 23, ]
 
@@ -85,7 +85,7 @@ ggsave("3-max_number_of_stable_matchings.pdf", width=18, height=10)
 
 ############### Average of (size of stable matching divided by n) ################
 
-d <- read.delim("../summary/sizes.txt", header=FALSE, col.names=c("n", "np", "matching_size", "count"), sep=" ")
+d <- read.delim("../sri/summary/sizes.txt", header=FALSE, col.names=c("n", "np", "matching_size", "count"), sep=" ")
 
 d <- d[d$n > 23, ]
 
