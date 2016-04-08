@@ -10,15 +10,10 @@ gen_type = sys.argv[2]
 def get_max_iter(size, p):
     return 1000
 
-    if size < 20:     return 1000000
-    elif size < 100:  return 100000
-    elif size < 1000: return 10000
-    else:             return 500
-
 with open("{}/input/sizes.txt".format(base_dir)) as f:
     sizes = [int(sz) for sz in f.readlines()]
 
-ps = range(101)
+ps = range(1001)
 max_p = max(ps)
 
 print "SR=sr"

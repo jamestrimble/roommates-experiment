@@ -1,8 +1,6 @@
 base_dir="sri"
 
 def get_max_iter(size, np):
-    return 50
-
     if size < 20:     return 1000000
     elif size < 100:  return 100000
     elif size < 1000: return 10000
