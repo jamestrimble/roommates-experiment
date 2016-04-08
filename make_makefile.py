@@ -20,7 +20,7 @@ def get_nps(size):
     return [np for np in nps if np <= size and (np==size or np%2==0)] 
 
 print "SR=sr"
-print "SRFLAGS=--random --timeout 1000000 -a --record-sizes --gen-type 8 --type 4"
+print "SRFLAGS=--random --timeout 1000000 -a --record-sizes --gen-type 9 --type 4"
 
 print "all: summary/counts.txt summary/sizes.txt summary/all.txt"
 
