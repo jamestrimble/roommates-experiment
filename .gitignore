@@ -1,6 +1,6 @@
-input/*.txt
-output/*.txt
-summary/*.txt
+*/input/*.txt
+*/output/*.txt
+*/summary/*.txt
 *.mk
 *.pyc
 *.pdf
