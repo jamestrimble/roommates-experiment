@@ -6,7 +6,7 @@ all: sri/generated.mk morph-a/generated.mk morph-b/generated.mk
 sri/generated.mk: make_makefile_sri.py sri/input/sizes.txt
 	python make_makefile_sri.py > sri/generated.mk
 
-sri/input/sizes.txt:
+sri/input/sizes.txt: make_sizes.py
 	python make_sizes.py > sri/input/sizes.txt
 
 morph-a/generated.mk: make_makefile_morph.py morph-a/input/sizes.txt
@@ -18,7 +18,7 @@ morph-a/input/sizes.txt:
 morph-b/generated.mk: make_makefile_morph.py morph-b/input/sizes.txt
 	python make_makefile_morph.py morph-b 7 > morph-b/generated.mk
 
-morph-b/input/sizes.txt:
+morph-b/input/sizes.txt: make_sizes_morph.py
 	python make_sizes_morph.py > morph-b/input/sizes.txt
 
 clean:
