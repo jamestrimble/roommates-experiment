@@ -15,5 +15,14 @@ db$model <- "b"
 
 d <- rbind(da, db)
 
-ggplot(d, aes(x=p, y=prob, colour=model)) +
-  geom_line()
+d100 <- d[d$n==100,]
+ggplot(d100, aes(x=p, y=prob, colour=model)) +
+  geom_line() +
+  theme_bw()
+ggsave("morph100.pdf")
+
+d_model_a <- d[d$model=="a",]
+ggplot(d_model_a, aes(x=p, y=prob, colour=factor(n))) +
+  geom_line() +
+  theme_bw()
+ggsave("morph-a-b.pdf")
