@@ -3,9 +3,7 @@ library(ggplot2)
 
 roommates_dat <- read.table("../mertens/roommates.dat", col.names=c("n", "p_n", "sigma"))
 roommates_dat$is_odd <- FALSE
-odd_n <- data.frame(n=roommates_dat$n + 1, p_n=0, sigma=0) # Same as roomates.dat, but with odd values of n
-odd_n$is_odd <- TRUE
-complete_graphs <- rbind(roommates_dat, odd_n)
+complete_graphs <- roommates_dat
 complete_graphs$n_group = paste0("n = ", as.integer(complete_graphs$n/2) * 2, ", ", as.integer(complete_graphs$n/2) * 2 + 1)
 complete_graphs$n_group = factor(complete_graphs$n_group, levels=unique(complete_graphs$n_group))
 
