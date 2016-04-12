@@ -17,8 +17,8 @@ d <- read.delim(paste0(dirname, "all.txt"), header=FALSE, col.names=c(
 d$np <- d$n * d$p
 d$lognp <- log(d$np)
 
-d <- d[d$n > 33 & d$n <= 32769, ]
-complete_graphs <- complete_graphs[complete_graphs$n > 33 & complete_graphs$n <= 32769, ]
+d <- d[d$n > 33 & d$n <= 49151, ]
+complete_graphs <- complete_graphs[complete_graphs$n > 33 & complete_graphs$n <= 49151, ]
 d <- d[ifelse(d$n %% 2, (d$n-1)%%5  & (d$n-1)%%7 , d$n%%5  & d$n%%7 ), ]
 complete_graphs <- complete_graphs[ifelse(complete_graphs$n %% 2,
                                           (complete_graphs$n-1)%%5  & (complete_graphs$n-1)%%7 ,
