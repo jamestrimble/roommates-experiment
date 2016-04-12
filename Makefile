@@ -1,7 +1,7 @@
 all: sri/generated.mk morph-a/generated.mk morph-b/generated.mk
 	make -j4 -f sri/generated.mk
-	make -j4 -f morph-a/generated.mk
-	make -j4 -f morph-b/generated.mk
+	#make -j4 -f morph-a/generated.mk
+	#make -j4 -f morph-b/generated.mk
 
 sri/generated.mk: make_makefile_sri.py sri/input/sizes.txt
 	python make_makefile_sri.py > sri/generated.mk

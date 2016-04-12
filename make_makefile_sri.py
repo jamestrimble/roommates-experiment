@@ -1,15 +1,16 @@
 base_dir="sri"
 
 def get_max_iter(size, np):
-    if size < 20:     return 1000000
-    elif size < 100:  return 100000
-    elif size < 1000: return 10000
-    else:             return 1000
+    if size < 20:      return 1000000
+    elif size < 100:   return 100000
+    elif size < 1000:  return 20000
+    elif size < 10000: return 5000
+    else:              return 2000
 
 with open("{}/input/sizes.txt".format(base_dir)) as f:
     sizes = [int(sz) for sz in f.readlines()]
 
-nps = [np for np in sizes if np < 500]
+nps = [np for np in sizes if np < 1000]
 
 def get_nps(size):
     return [np for np in nps if np <= size and (np==size or np%2==0)] 
