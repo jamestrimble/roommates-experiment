@@ -36,7 +36,7 @@ ggplot(d, aes(x=n_times_p, y=prop_stable, colour=is_odd, label=n)) +
   geom_line() +
   facet_wrap(~n_group, ncol=5) +
   theme_bw() +
-  scale_x_log10(breaks=c(1, 10, 100, 1000), limits=c(1,40000)) +
+  scale_x_log10(breaks=c(1, 10, 100, 1000, 10000), limits=c(1,40000)) +
   geom_text(data=label_positions, nudge_x=.1+nchar(as.character(label_positions$n))/12,
             nudge_y=.06, colour="black") +
   scale_colour_discrete(guide=FALSE) +
