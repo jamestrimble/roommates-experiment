@@ -38,13 +38,13 @@ ggplot(d, aes(x=n_times_p, y=prop_stable, colour=is_odd, label=n)) +
   theme_bw() +
   scale_x_log10(breaks=c(1, 10, 100, 1000), limits=c(1,40000)) +
   geom_text(data=label_positions, nudge_x=.1+nchar(as.character(label_positions$n))/12,
-            nudge_y=.05, colour="black") +
+            nudge_y=.06, colour="black") +
   scale_colour_discrete(guide=FALSE) +
   ylab("Proportion of instances that admit a stable solution") +
-  xlab(expression(paste("Expected preference list length (", n * p, ")")))
+  xlab(expression(paste("Average degree (", n * p, ")")))
 
 fname <- paste0(run_name, "-1-proportion_of_instances_with_stable_solution.pdf")
-ggsave(fname, width=18, height=10)
+ggsave(fname, width=13, height=8)
 
 
 ############### Check number of edges ################
